@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="Inscription"
+            type="test.android.orca.com.roomvvm.viewmodel.InscriptionUtil" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_marginBottom="10dp"
+                android:hint="Email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:afterTextChanged="@{(editable)->Inscription.OnMailChanged(editable)}"
+                />
+            <EditText
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:layout_width="300dp"
+                android:afterTextChanged="@{(editable)->Inscription.OnPasswordChanged(editable)}"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_marginBottom="10dp"
+                android:hint="Name"
+                android:layout_width="300dp"
+                android:afterTextChanged="@{(editable)->Inscription.OnNameChanged(editable)}"
+                android:layout_height="wrap_content" />
+            <Button
+                android:textColor="#FFF"
+                android:background="#1976D2"
+                android:text="Inscription"
+                android:layout_width="300dp"
+                android:onClick="@{()->Inscription.OnButtonClick()}"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</layout>
